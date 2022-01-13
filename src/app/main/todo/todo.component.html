@@ -1,0 +1,12 @@
+<div class="container" fxLayout="column" fxLayoutGap="0.5rem">
+    <h1>My Todo List</h1>
+    <button (click)="openDialog()" mat-raised-button color="primary" class="clear-button">Add new Todo</button>
+    <button (click)="clearList()" mat-raised-button color="primary" class="clear-button">Reset List</button>
+    <div fxFlex="auto" fxLayout="column" fxLayoutAlign="center">
+        <app-todo-card *ngFor="let todo of todos" (onDeleteClickEvent)="deleteTodo($event)" (onEditClickEvent)="openDialog($event)" (onCompleteClickEvent)="onTodoChange($event)" [id]="todo.id"
+            [complete]="todo.complete" [text]="todo.text">
+        </app-todo-card>
+
+        <div *ngIf="todos.length === 0"  align="center">Your List is Empty</div>
+    </div>
+</div>

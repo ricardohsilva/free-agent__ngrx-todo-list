@@ -1,0 +1,18 @@
+<div mat-dialog-content fxLayoutGap="2rem">
+    <h3 *ngIf="!isEditMode">Add New Todo</h3>
+    <h3 *ngIf="isEditMode">Update Todo</h3>
+    <mat-form-field appearance="outline">
+        <mat-label>Todo Description</mat-label>
+        <input matInput [(ngModel)]="inputValue">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="warn" (click)="dialogRef.close()">Cancel</button>
+    <button mat-raised-button color="primary" *ngIf="!isEditMode" (click)="onConfirm()" cdkFocusInitial>
+        Add
+    </button>
+
+    <button mat-raised-button color="primary" *ngIf="isEditMode" (click)="onConfirm()" cdkFocusInitial>
+        Update
+    </button>
+</div>

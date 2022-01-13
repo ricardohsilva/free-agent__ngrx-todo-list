@@ -1,0 +1,23 @@
+<mat-card
+    [ngStyle]="todo.complete ? {'background-color': '#BAFFB4'} : {'background-color': '#FFAB76'}" fxLayout="row"
+    fxLayoutAlign="start center">
+    <div fxFlex="10px"></div>
+
+    <mat-icon class="pointer" (click)="onTudoCompleteChange()">
+        check_circle_outline
+    </mat-icon>
+    
+
+    <div fxFlex="auto" align="center" style="overflow: hidden;">
+        <div>{{text}}</div>
+    </div>
+
+    <mat-icon fxFlex="40px" class="pointer" (click)="onEditClickEvent.emit(todo)">
+        edit
+    </mat-icon>
+
+    <mat-icon fxFlex="40px" class="pointer" (click)="onDeleteClickEvent.emit(todo)">
+        delete
+    </mat-icon>
+
+</mat-card>
